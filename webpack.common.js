@@ -16,7 +16,7 @@ module.exports = function makeConfig() {
       main: './main.ts'
     },
     output: {
-      publicPath: './dist/'
+      publicPath: '/'
     },
     resolve: {
       extensions: ['.ts', '.js', '.json']
@@ -32,7 +32,7 @@ module.exports = function makeConfig() {
         ]
       }, {
         test: /\.ts$/,
-        loader: ['ts-loader', 'angular2-template-loader?keepUrl=true'],
+        loader: ['ts-loader'],
         exclude: [/\.(spec|e2e)\.ts$/]
       }, {
         test: /\.json$/,
@@ -53,9 +53,10 @@ module.exports = function makeConfig() {
       new webpack.optimize.CommonsChunkPlugin({
         name: ['polyfills']
       }),
-      // new CopyWebpackPlugin([
-      //   {from: 'src/app/app.component.html', to: 'app.component.html'}
-      // ]),
+      new CopyWebpackPlugin([
+        {from: 'app/app.component.html', to: 'app.component.html'},
+        {from: 'app/app.component.css', to: 'app.component.css'}
+      ]),
       new HtmlWebpackPlugin({
         template: './index.html',
         filename: 'index.html',

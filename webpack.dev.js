@@ -21,6 +21,9 @@ function makeConfig() {
 
   return webpackMerge(commonConfig, {
     devtool: 'cheap-module-source-map',
+    devServer: {
+      port: metadata.port
+    },
     output: {
       path: helpers.root('dist'),
       filename: '[name].bundle.js',
