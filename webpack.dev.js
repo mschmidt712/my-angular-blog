@@ -2,7 +2,7 @@
 
 const helpers = require('./build/helpers');
 const webpackMerge = require('webpack-merge');
-const makeCommonConfig = require('./webpack.common.js');
+const commonConfig = require('./webpack.common.js')();
 
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 
@@ -10,7 +10,6 @@ const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HMR = helpers.hasProcessFlag('hot');
 
 function makeConfig() {
-  const commonConfig = makeCommonConfig();
 
   const metadata = webpackMerge(commonConfig.metadata, {
     host: 'localhost',
@@ -25,7 +24,7 @@ function makeConfig() {
       port: metadata.port
     },
     output: {
-      path: helpers.root('dist'),
+      path: __dirname + '/dist',
       filename: '[name].bundle.js',
       sourceMapFilename: '[name].map',
       chunkFilename: '[id].chunk.js'

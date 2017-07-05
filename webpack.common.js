@@ -8,7 +8,7 @@ const { CheckerPlugin } = require('awesome-typescript-loader');
 
 const pkg = require('./package.json');
 
-module.exports = function makeConfig() {
+module.exports = function () {
   return {
     context: __dirname + '/src',
     entry: {
@@ -23,7 +23,6 @@ module.exports = function makeConfig() {
     },
     module: {
       rules: [{
-        enforce: 'pre',
         test: /\.js$/,
         loader: 'source-map-loader',
         exclude: [
@@ -39,10 +38,17 @@ module.exports = function makeConfig() {
         loader: 'json-loader'
       }, {
         test: /\.css$/,
-        loader: 'raw-loader',
+        use: 'raw-loader'
       }, {
         test: /\.html$/,
-        loader: 'html-loader'
+        use: [{
+          loader: 'html-loader',
+          options: {
+            minimize: true,
+            exportAsDefault: true
+          },
+        }],
+        exclude: [/index\.html$/]
       }, {
         test: /\.md$/,
         loader: 'html!markdown'
@@ -54,8 +60,7 @@ module.exports = function makeConfig() {
         name: ['polyfills']
       }),
       new CopyWebpackPlugin([
-        {from: 'app/app.component.html', to: 'app.component.html'},
-        {from: 'app/app.component.css', to: 'app.component.css'}
+        {from: './app/app.component.html', to: 'app.component.html'},
       ]),
       new HtmlWebpackPlugin({
         template: './index.html',
