@@ -1,5 +1,5 @@
 'use strict';
-
+const path = require('path');
 const helpers = require('./build/helpers');
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./webpack.common.js')();
@@ -21,10 +21,14 @@ function makeConfig() {
   return webpackMerge(commonConfig, {
     devtool: 'cheap-module-source-map',
     devServer: {
-      port: metadata.port
+      port: metadata.port,
+      historyApiFallback: true,
+      contentBase: path.join(__dirname, "dist"),
+      publicPath: '/',
+      hot: true
     },
     output: {
-      path: __dirname + '/dist',
+      path: __dirname + '/dist/',
       filename: '[name].bundle.js',
       sourceMapFilename: '[name].map',
       chunkFilename: '[id].chunk.js'

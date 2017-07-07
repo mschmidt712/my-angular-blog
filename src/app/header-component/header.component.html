@@ -1,0 +1,13 @@
+<nav>
+  <div class="app-title">
+    <a routerLink="">
+      <img src="/coffee-logo.jpg" alt="coffee logo" class="app-logo"/>
+    </a>
+    <h1> {{title}} </h1>
+  </div>
+  <ul>
+    <li *ngFor="let button of navButtons">
+      <a routerLink={{button.route}} routerLinkActive="active" class="btn-primary">{{button.name}}</a>
+    </li>
+  </ul>
+</nav>

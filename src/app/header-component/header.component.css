@@ -1,0 +1,48 @@
+@import '../../styles.css';
+
+.app-title {
+  display: flex;
+  padding: 0.5rem 0;
+  align-items: center;
+
+  & h1 {
+    font-size: 1.3rem;
+    padding-left: 0.5rem;
+
+    & :first-child {
+      padding-left: 1rem;
+    }
+  }
+}
+
+.app-logo {
+  width: 60px;
+  height: 60px;
+  clip-path: circle();
+  margin-left: 1rem;
+  box-shadow: 1px 1px 2px 1px var(--black, black);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: var(--aquamarine, aquamarine);
+  margin-bottom: 3rem;
+
+  & ul {
+    display: flex;
+    align-items: stretch;
+    list-style: none;
+    padding: 0;
+    margin: 0 1rem 0 0;
+
+    & li {
+      display: flex;
+      align-items: stretch;
+      margin: 0;
+      padding: 0;
+      width: 7rem;
+    }
+  }
+}

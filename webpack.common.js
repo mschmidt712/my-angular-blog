@@ -15,40 +15,45 @@ module.exports = function () {
       polyfills: './polyfills.ts',
       main: './main.ts'
     },
-    output: {
-      publicPath: '/'
-    },
     resolve: {
-      extensions: ['.ts', '.js', '.json']
+      extensions: ['.ts', '.js']
     },
     module: {
       rules: [{
         test: /\.js$/,
-        loader: 'source-map-loader',
-        exclude: [
-          helpers.root('node_modules/rxjs'),
-          helpers.root('node_modules/@angular')
-        ]
+        enforce: 'pre',
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        }, {
+          loader: 'source-map-loader'
+        }],
+        exclude: /node_modules/
       }, {
         test: /\.ts$/,
-        loader: ['ts-loader'],
+        loader: 'ts-loader',
         exclude: [/\.(spec|e2e)\.ts$/]
       }, {
         test: /\.json$/,
         loader: 'json-loader'
       }, {
         test: /\.css$/,
-        use: 'raw-loader'
+        use: [{
+          loader: 'to-string-loader'
+        }, {
+          loader: 'css-loader'
+        }, {
+          loader: 'postcss-loader'
+        }]
       }, {
         test: /\.html$/,
-        use: [{
-          loader: 'html-loader',
-          options: {
-            minimize: true,
-            exportAsDefault: true
-          },
-        }],
+        loader: 'raw-loader',
         exclude: [/index\.html$/]
+      }, {
+        test: /\.(jpe?g|gif|png|svg|woff|ttf|wav|mp3)$/,
+        loader: 'file-loader'
       }, {
         test: /\.md$/,
         loader: 'html!markdown'
@@ -60,13 +65,17 @@ module.exports = function () {
         name: ['polyfills']
       }),
       new CopyWebpackPlugin([
-        {from: './app/app.component.html', to: 'app.component.html'},
+        { from: './assets' },
+        { from: './styles.css' },
+        { from: './normalize.css' },
+        { from: __dirname + '/favicon.ico' }
       ]),
       new HtmlWebpackPlugin({
         template: './index.html',
         filename: 'index.html',
         chunksSortMode: 'dependency'
-      })
+      }),
+      new webpack.HotModuleReplacementPlugin()
     ]
   };
 }

@@ -1,0 +1,13 @@
+[{
+  "title": "My First Blog Post",
+  "abstract": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt, lectus vel venenatis laoreet, mi lacus elementum felis, sed accumsan lorem leo eu urna. ",
+  "imageSrc": "/blog-image-1.jpg"
+}, {
+  "title": "My Second Blog Post",
+  "abstract": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt, lectus vel venenatis laoreet, mi lacus elementum felis, sed accumsan lorem leo eu urna. ",
+  "imageSrc": "/blog-image-2.jpg"
+}, {
+  "title": "My Third Blog Post",
+  "abstract": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt, lectus vel venenatis laoreet, mi lacus elementum felis, sed accumsan lorem leo eu urna. ",
+  "imageSrc": "/blog-image-3.jpg"
+}]
