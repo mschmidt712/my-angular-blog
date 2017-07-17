@@ -1,0 +1,64 @@
+/* custom properties */
+:root {
+  --fontSize: 1rem;
+  --grey: #f3f2f0;
+  --beige: #DBCB9A;
+  --aquamarine: #94D2CB;
+  --light-orange: #E98B44;
+  --dark-orange: #EA6714;
+  --teal: #53A69F;
+  --opaque-teal: rgba(83,166,159, 0.5);
+  --black: #191A1A;
+  --highlightColor: hwb(190, 35%, 20%);
+}
+
+.carousel-container {
+  position: relative;
+}
+
+.carousel {
+  width: 80%;
+  margin: 1rem auto 2rem;
+}
+
+.slide {
+  padding: 0.25rem;
+}
+
+.slick-slide {
+  height: auto;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 0%;
+}
+
+.next {
+  right: 0%;
+}
+
+.prev > i, .next > i {
+  font-size: 2rem;
+  color: var(--black, black);
+
+  &:hover {
+    background-color: var(--opaque-teal, teal);
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 600px) {
+  .prev > i, .next > i {
+    font-size: 4rem;
+  }
+
+  .slide {
+    padding: 1rem;
+  }
+}

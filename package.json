@@ -4,9 +4,11 @@
   "description": "A blog written in Angular from scratch",
   "main": "index.js",
   "scripts": {
-    "start": "node ./server.js PORT=8000",
-    "develop": "webpack --config webpack.dev.js && webpack-dev-server --config webpack.dev.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack --config webpack.dev.js && node ./server.js PORT=8000",
+    "develop": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "node ./deployment/s3Upload.js"
   },
   "author": "Marie Schmidt",
   "license": "UNLICENSED",
@@ -23,17 +25,23 @@
     "autoprefixer": "^7.1.2",
     "babel-runtime": "^6.23.0",
     "core-js": "^2.4.1",
+    "jquery": "^3.2.1",
+    "ngx-slick": "^0.1.1",
     "rxjs": "^5.4.2",
+    "slick-carousel": "^1.6.0",
     "zone.js": "^0.8.12"
   },
   "devDependencies": {
+    "@types/jquery": "^3.2.8",
     "@types/node": "^8.0.3",
     "angular2-template-loader": "^0.6.2",
     "awesome-typescript-loader": "^3.1.3",
+    "aws-sdk": "^2.83.0",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.0",
+    "clean-webpack-plugin": "^0.1.16",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.2",

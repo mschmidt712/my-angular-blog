@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Blog } from '../blog-component/Blog';
+import { Blog } from '../blog-link-component/Blog';
 const blogs = require('../blogs.data.json');
 
 const template = require('./home.component.html');

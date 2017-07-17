@@ -1,24 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app-component/app.component';
 import { HeaderComponent } from './header-component/header.component';
+import { RoutingModule } from './routing.module'
 import { HomeModule } from './home.module'
 import { AboutModule } from './about.module'
-import { HomeComponent } from './home-component/home.component';
-import { AboutComponent } from './about-component/about.component';
+import { BlogModule } from './blog.module';
 
-const appRoutes: Routes = [
-  { path: 'about', component: AboutComponent },
-  { path: '',
-    component: HomeComponent
-  }, {
-    path: '**',
-    redirectTo: '/',
-    pathMatch: 'full'
-  }
-];
 
 @NgModule({
   declarations: [
@@ -27,12 +16,10 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true }
-    ),
     HomeModule,
-    AboutModule
+    AboutModule,
+    BlogModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

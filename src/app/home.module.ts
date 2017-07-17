@@ -1,14 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { HomeComponent } from './home-component/home.component';
-import { BlogComponent } from './blog-component/blog.component';
+import { BlogLinkComponent } from './blog-link-component/blog-link.component';
 
 @NgModule({
-  imports: [ CommonModule ],
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
   declarations: [
-    HomeComponent, BlogComponent
+    HomeComponent, BlogLinkComponent
   ],
   exports: [
     HomeComponent

@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const helpers = require('./build/helpers');
 
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader');
@@ -61,8 +62,14 @@ module.exports = function () {
     },
     plugins: [
       new CheckerPlugin(),
+      new CleanWebpackPlugin(`${__dirname}/dist`),
       new webpack.optimize.CommonsChunkPlugin({
         name: ['polyfills']
+      }),
+      new webpack.ProvidePlugin({
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery'
       }),
       new CopyWebpackPlugin([
         { from: './assets' },

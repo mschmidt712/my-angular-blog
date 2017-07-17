@@ -1,0 +1,13 @@
+<div class="carousel-container">
+<ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+  <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+        <img src={{slide}} alt="" width="100%">
+  </div>
+</ngx-slick>
+<button class="prev" (click)="slickModal.slickGoTo(goToPrevSlide())">
+  <i class="material-icons">keyboard_arrow_left</i>
+</button>
+<button class="next" (click)="slickModal.slickGoTo(goToNextSlide())">
+  <i class="material-icons">keyboard_arrow_right</i>
+</button>
+</div>

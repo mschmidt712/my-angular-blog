@@ -29,8 +29,8 @@ function makeConfig() {
     },
     output: {
       path: __dirname + '/dist/',
-      filename: '[name].bundle.js',
-      sourceMapFilename: '[name].map',
+      filename: '[name].[hash].bundle.js',
+      sourceMapFilename: '[name].[hash].map',
       chunkFilename: '[id].chunk.js'
     },
     plugins: [

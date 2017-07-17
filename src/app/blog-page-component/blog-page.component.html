@@ -1,0 +1,14 @@
+<div>
+  <h1> {{blog.title}} </h1>
+  <carousel-component [slides]="blog.images"></carousel-component>
+  <div *ngFor="let paragraph of blog.content">
+    <p> {{paragraph}} </p>
+  </div>
+  <div>
+    <br />
+    <p>Until Next Time,</p>
+    <p>Marie Schmidt</p>
+  </div>
+  <p>
+
+</div>

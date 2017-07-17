@@ -111,6 +111,7 @@
   --light-orange: #E98B44;
   --dark-orange: #EA6714;
   --teal: #53A69F;
+  --opaque-teal: rgba(83,166,159, 0.5);
   --black: #191A1A;
   --highlightColor: hwb(190, 35%, 20%);
 }

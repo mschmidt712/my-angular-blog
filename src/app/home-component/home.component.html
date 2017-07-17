@@ -1,14 +1,14 @@
 <div class="home-section">
   <h2 class="section-header"> What's New </h2>
   <div class="section-container">
-    <blog-component *ngFor="let blog of blogs"
+    <blog-link-component *ngFor="let blog of blogs"
       [blog]="blog">
-    </blog-component>
+    </blog-link-component>
   </div>
   <h2 class="section-header"> Popular Posts from the Archive </h2>
   <div class="section-container">
-    <blog-component *ngFor="let blog of blogs"
+    <blog-link-component *ngFor="let blog of blogs"
       [blog]="blog">
-    </blog-component>
+    </blog-link-component>
   </div>
 </div>
