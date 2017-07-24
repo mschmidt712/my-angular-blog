@@ -19,7 +19,7 @@ export class HeaderComponent {
     route: '/about'
    }, {
      name: 'Archive',
-     route: '/archives'
+     route: '/archive'
    }];
 }
 

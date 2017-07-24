@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { HomeComponent } from './home-component/home.component';
+import { ArchiveComponent } from './archive-component/archive.component';
 import { BlogLinkComponent } from './blog-link-component/blog-link.component';
 
 @NgModule({
@@ -12,7 +13,7 @@ import { BlogLinkComponent } from './blog-link-component/blog-link.component';
     RouterModule
   ],
   declarations: [
-    HomeComponent, BlogLinkComponent
+    HomeComponent, BlogLinkComponent, ArchiveComponent
   ],
   exports: [
     HomeComponent

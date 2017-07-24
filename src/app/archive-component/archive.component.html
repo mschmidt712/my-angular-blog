@@ -1,0 +1,10 @@
+<div class="archive-section">
+  <div *ngFor="let sortedBlog of sortedBlogs">
+    <h2 class="section-header">{{sortedBlog.date}}</h2>
+    <div class="section-container">
+      <blog-link-component *ngFor="let blog of sortedBlog.posts"
+        [blog]="blog">
+      </blog-link-component>
+    </div>
+  </div>
+</div>

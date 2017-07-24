@@ -1,6 +1,7 @@
 @import '../../styles.css';
 
 .blog-container {
+  flex-basis: content;
   position: relative;
   padding: 1rem;
   margin: 1rem;
