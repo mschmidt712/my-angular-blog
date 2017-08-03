@@ -13,4 +13,16 @@ const styles = require('./home.component.css');
 })
 export class HomeComponent {
   blogs : Blog[] = blogs;
+
+  techBlogs = this.blogs.filter(blog => {
+    return blog.category === 'tech';
+  });
+
+  travelBlogs = this.blogs.filter(blog => {
+    return blog.category === 'travel';
+  });
+
+  leisureBlogs = this.blogs.filter(blog => {
+    return blog.category === 'leisure';
+  });
 }

@@ -1,5 +1,9 @@
 @import '../../styles.css';
 
+.archive-section {
+  margin-top: 3rem;
+}
+
 .section-header {
   text-align: center;
   font-weight: 100;
@@ -12,6 +16,5 @@
 .section-container {
   margin: 0 5%;
   display: flex;
-  flex-basis: 1em;
   justify-content: space-between;
 }

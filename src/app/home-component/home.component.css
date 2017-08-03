@@ -1,16 +1,16 @@
 @import '../../styles.css';
 
 .section-header {
-  text-align: center;
-  font-weight: 100;
+  text-align: left;
+  font-weight: 400;
   font-size: 1.5rem;
-  border-bottom: 1px solid var(--black, black);
+  border-bottom: 1px solid var(--beige, beige);
   padding: 1rem;
   margin: 0 5%;
 }
 
-.section-container {
-  margin: 0 5%;
+.blog-sections {
+  max-width: 1200px;
+  margin: auto;
   display: flex;
-  justify-content: space-between;
 }

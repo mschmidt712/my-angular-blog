@@ -27,8 +27,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  background-color: var(--aquamarine, aquamarine);
-  margin-bottom: 3rem;
+  background-image: linear-gradient(to right, var(--aquamarine) 10%, white, var(--aquamarine) 90%);
 
   & ul {
     display: flex;

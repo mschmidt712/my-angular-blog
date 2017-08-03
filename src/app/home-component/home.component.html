@@ -1,14 +1,23 @@
 <div class="home-section">
-  <h2 class="section-header"> What's New </h2>
-  <div class="section-container">
-    <blog-link-component *ngFor="let blog of blogs"
-      [blog]="blog">
-    </blog-link-component>
-  </div>
-  <h2 class="section-header"> Popular Posts from the Archive </h2>
-  <div class="section-container">
-    <blog-link-component *ngFor="let blog of blogs"
-      [blog]="blog">
-    </blog-link-component>
+  <home-header></home-header>
+  <div class="blog-sections">
+    <div class="technology-section-container section-container">
+      <h2 class="section-header"> Technology </h2>
+      <blog-link-component *ngFor="let techBlog of techBlogs"
+        [blog]="techBlog">
+      </blog-link-component>
+    </div>
+    <div class="travel-section-container section-container">
+      <h2 class="section-header"> Travel </h2>
+      <blog-link-component *ngFor="let travelBlog of travelBlogs"
+        [blog]="travelBlog">
+      </blog-link-component>
+    </div>
+    <div class="leisure-section-container section-container">
+      <h2 class="section-header"> Leisure </h2>
+      <blog-link-component *ngFor="let leisureBlog of leisureBlogs"
+        [blog]="leisureBlog">
+      </blog-link-component>
+    </div>
   </div>
 </div>

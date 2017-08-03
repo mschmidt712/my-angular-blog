@@ -107,7 +107,9 @@
   --fontSize: 1rem;
   --grey: #f3f2f0;
   --beige: #DBCB9A;
+  --opaque-beige: rgba(219,203,154, 0.2);
   --aquamarine: #94D2CB;
+  --opaque-aquamarine: rgba(148,210,203, 0.2);
   --light-orange: #E98B44;
   --dark-orange: #EA6714;
   --teal: #53A69F;
@@ -124,7 +126,6 @@
 body {
   font-family: 'Montserrat';
   font-weight: 100;
-  background-color: var(--grey);
   width: 100%;
   min-height: 100%;
   margin: 0;
@@ -154,4 +155,12 @@ button, a {
 
 .btn-primary:hover {
   background-color: var(--teal);
+}
+
+.line-break {
+  width: 50%;
+  height: 3px;
+  background-color: var(--beige, beige);
+  margin: 1rem auto;
+
 }
