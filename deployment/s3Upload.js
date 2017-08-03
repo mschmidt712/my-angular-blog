@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const s3 = new AWS.S3({region: config.region});
+const cloudfront = new AWS.CloudFront({ region: config.region });
 const bucketName = config.bucketName;
 
 const contentTypeMap = {
@@ -66,8 +67,31 @@ function loadAssetsToS3 (assets) {
   return Promise.all(promises);
 }
 
+function invalidateCache () {
+  const params = {
+    DistributionId: config.distributionId,
+    InvalidationBatch: {
+      CallerReference: Date.now().toString(),
+      Paths: {
+        Quantity: 1,
+        Items: [
+          '/index.html'
+        ]
+      }
+    }
+  };
+
+  const request = cloudfront.createInvalidation(params, (err, data) => {
+    if (err) return err;
+    else return data;
+  });
+
+  return request.promise();
+}
+
 getAssetNames()
   .then(loadAssetsToS3)
+  .then(invalidateCache)
   .then(console.log)
   .catch(console.error);
 
